@@ -1,0 +1,235 @@
+#solución Enrique Ortiz
+
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Apocalipsis zombie\n",
+    "\n",
+    "![](./images/thewalkingdead.jpeg)\n",
+    "\n",
+    "Cargas un arsenal de armas y una mochila con cargadores de munición de tamaño variable para algunos tipos de armas. ¿Cuántos zombies puedes matar antes de tener que echar a correr por tu vida? Deberás imprimir el resultado de cada caso que corresponde al número de balas que tienes de las armas que cargas.  \n",
+    "\n",
+    "ALGORITMO: Por cada arma diferente que cargas, tienes que comprobar si portas cargadores para ella. Si esto es afirmativo deberás sumar el total de balas que podrás disparar. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Caso 0: Ejemplo simple"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 74,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Sí tenemos balas de pistola.\n",
+      "Sí tenemos balas de escopeta.\n",
+      "¡Qué suerte! Tenemos municiones para cada tipo de arma.\n",
+      "\n",
+      "Contando las balas...\n",
+      "Contando las balas...\n",
+      "\n",
+      "¡Listo! Tenemos 30 balas en total. ¿Será suficiente?\n"
+     ]
+    }
+   ],
+   "source": [
+    "armas = ['pistola','escopeta']\n",
+    "\n",
+    "cargadores = {\n",
+    "    'pistola': [10, 10], \n",
+    "    'escopeta': [2, 2, 2, 2, 2]\n",
+    "}\n",
+    "\n",
+    "#Una lista vacía donde iré poniendo todas las municiones. \n",
+    "balas_arma_0 = []\n",
+    "\n",
+    "#Primero veamos si tenemos municiones de cada arma, y añadamos las municiones en mi lista vacía. \n",
+    "for arma_0 in armas:\n",
+    "    if cargadores[arma_0]:\n",
+    "        print(f\"Sí tenemos balas de {arma_0}.\")\n",
+    "        balas_arma_0 = balas_arma_0 + cargadores[arma_0]\n",
+    "print(\"¡Qué suerte! Tenemos municiones para cada tipo de arma.\")\n",
+    "\n",
+    "#Tiempo de sumarlas. \n",
+    "\n",
+    "suma_0 = 0\n",
+    "for z in range(len(balas_arma_0)):\n",
+    "    suma_0 = suma_0 + balas_arma_0[z]\n",
+    "\n",
+    "print(f\"\\nContando las balas...\\nContando las balas...\\n\\n¡Listo! Tenemos {suma_0} balas en total. ¿Será suficiente?\" )\n",
+    "\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Output esperado** -> 30"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Caso 1: Mismas armas que municiones"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 72,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Sí tenemos balas de pistola.\n",
+      "Sí tenemos balas de ametralladora.\n",
+      "Sí tenemos balas de escopeta.\n",
+      "Sí tenemos balas de fusil de francotirador.\n",
+      "¡Qué suerte! Tenemos municiones para cada tipo de arma.\n",
+      "\n",
+      "Contando las balas...\n",
+      "Contando las balas...\n",
+      "\n",
+      "¡Listo! Tenemos 158 balas en total. ¿Será suficiente?\n"
+     ]
+    }
+   ],
+   "source": [
+    "armas = ['pistola', 'ametralladora', 'escopeta', 'fusil de francotirador']\n",
+    "\n",
+    "cargadores = {\n",
+    "    'pistola': [12, 13, 4, 5, 20, 17], \n",
+    "    'ametralladora': [33, 40], \n",
+    "    'escopeta': [2, 2, 2, 1], \n",
+    "    'fusil de francotirador': [1, 2, 4]\n",
+    "}\n",
+    "\n",
+    "balas_arma = []\n",
+    "#Primero veamos si tenemos municiones de cada arma. \n",
+    "for arma in armas:\n",
+    "    if cargadores[arma]:\n",
+    "        print(f\"Sí tenemos balas de {arma}.\")\n",
+    "        balas_arma = balas_arma + cargadores[arma]\n",
+    "print(\"¡Qué suerte! Tenemos municiones para cada tipo de arma.\")\n",
+    "\n",
+    "suma = 0\n",
+    "\n",
+    "for x in range(len(balas_arma)):\n",
+    "    suma = suma + balas_arma[x]\n",
+    "\n",
+    "print(f\"\\nContando las balas...\\nContando las balas...\\n\\n¡Listo! Tenemos {suma} balas en total. ¿Será suficiente?\" )\n",
+    "\n",
+    "\n",
+    "        \n",
+    "        \n",
+    "    \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Caso 2: Más tipos de munición que armas"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 80,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Sí tenemos balas de pistola.\n",
+      "Sí tenemos balas de ametralladora.\n",
+      "Sí tenemos balas de escopeta.\n",
+      "Sí tenemos balas de fusil de francotirador.\n",
+      "¡Qué suerte! Tenemos municiones para cada tipo de arma.\n",
+      "...\n",
+      "Qué raro, tenemos balas de bazoka, pero no tenemos bazokas.\n",
+      "\n",
+      "Contando las balas...\n",
+      "Contando las balas...\n",
+      "\n",
+      "¡Listo! Tenemos 158 balas en total. ¿Será suficiente?\n"
+     ]
+    }
+   ],
+   "source": [
+    "armas = ['pistola', 'ametralladora', 'escopeta', 'fusil de francotirador']\n",
+    "\n",
+    "cargadores = {\n",
+    "    'pistola': [12, 13, 4, 5, 20, 17], \n",
+    "    'ametralladora': [33, 40], \n",
+    "    'escopeta': [2, 2, 2, 1], \n",
+    "    'fusil de francotirador': [1, 2, 4], \n",
+    "    'bazoka': [1, 1]\n",
+    "}\n",
+    "\n",
+    "balas_arma_02 = []\n",
+    "#Primero veamos si tenemos municiones de cada arma. \n",
+    "\n",
+    "for arma in armas:\n",
+    "    if cargadores[arma]:\n",
+    "        print(f\"Sí tenemos balas de {arma}.\")\n",
+    "        balas_arma_02 = balas_arma_02 + cargadores[arma]\n",
+    "print(\"¡Qué suerte! Tenemos municiones para cada tipo de arma.\")\n",
+    "\n",
+    "for cargador in cargadores:\n",
+    "    if cargador in armas:\n",
+    "        pass\n",
+    "    else:\n",
+    "        print(f\"...\\nQué raro, tenemos balas de {cargador}, pero no tenemos {cargador}s.\")\n",
+    "\n",
+    "suma_02 = 0\n",
+    "\n",
+    "for y in range(len(balas_arma_02)):\n",
+    "    suma_02 = suma_02 + balas_arma_02[y]\n",
+    "\n",
+    "print(f\"\\nContando las balas...\\nContando las balas...\\n\\n¡Listo! Tenemos {suma_02} balas en total. ¿Será suficiente?\" )\n",
+    "\n",
+    "\n",
+    "        \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Caso 3: Más armas que tipos de munición"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 86,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Sí tenemos balas de pistola.\n",
+      "Sí tenemos balas de ametralladora.\n",
+      "Sí tenemos balas de escopeta.\n",
+      "Chin, no tenemos balas para el fusil de francotirador.\n",
+      "\n",
+      "Contando las balas...\n",
+      "Contando las balas...\n",
+      "\n",
+      "¡Listo! Tenemos 151 balas en total. ¿Será suficiente?\n"
+     ]
