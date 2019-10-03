@@ -1,0 +1,371 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Duel of sorcerers\n",
+    "## Intro\n",
+    "You are witnessing an epic battle between two powerful sorcerers: Gandalf and Saruman. Each sorcerer has 10 spells of variable power in their mind and they are going to throw them one after the other. The winner of the duel will be the one who wins more of those clashes between spells. Spells are represented as a list of 10 integers whose value equals the power of the spell.\n",
+    "```\n",
+    "gandalf = [10, 11, 13, 30, 22, 11, 10, 33, 22, 22]\n",
+    "saruman = [23, 66, 12, 43, 12, 10, 44, 23, 12, 17]\n",
+    "```\n",
+    "For example:\n",
+    "1. The first clash is won by Saruman: 10 against 23, wins 23\n",
+    "2. The second clash wins Saruman: 11 against 66, wins 66\n",
+    "3. etc.\n",
+    "\n",
+    "\n",
+    "You will create two variables, one for each sorcerer, where the sum of clashes won will be stored. Depending on which variable is greater at the end of the duel, you will show one of the following three results on the screen:\n",
+    "* Gandalf wins\n",
+    "* Saruman wins\n",
+    "* Tie\n",
+    "\n",
+    "<img src=\"images/content_lightning_bolt_big.jpg\" width=\"400\">\n",
+    "\n",
+    "## LINKS: \n",
+    "* zip: https://www.programiz.com/python-programming/methods/built-in/zip"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Solution"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Assign spell power lists to variables\n",
+    "gandalf = [10, 11, 13, 30, 22, 11, 10, 33, 22, 22]\n",
+    "saruman = [23, 66, 12, 43, 12, 10, 44, 23, 12, 17]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Assign 0 to each variable that stores the victories\n",
+    "\n",
+    "gandalf_sum = 0\n",
+    "saruman_sum = 0"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Execution of spell clashes\n",
+    "\n",
+    "\n",
+    "for x in range(len(gandalf)):\n",
+    "    if gandalf[x] > saruman[x]:\n",
+    "        gandalf_sum +=1\n",
+    "    elif saruman[x] > gandalf[x]:\n",
+    "        saruman_sum +=1\n",
+    "    elif saruman[x] == gandalf[x]:\n",
+    "        pass\n",
+    "\n",
+    "print(f\"Gandalf ganó {gandalf_sum} partidas\")\n",
+    "print((f\"Saruman ganó {saruman_sum} partidas\"))\n",
+    "            "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Expected output**:\n",
+    "```\n",
+    "6\n",
+    "4\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# We check who has won, do not forget the possibility of a draw.\n",
+    "# Print the result based on the winner.\n",
+    "\n",
+    "if gandalf_sum > saruman_sum:\n",
+    "    print(\"Señoras y señores, Gandalf ganó.\")\n",
+    "elif saruman_sum > gandalf_sum:\n",
+    "    print(\"Señoras y señores, Saruman ganó.\")\n",
+    "elif saruman_sum == gandalf_sum:\n",
+    "    print(\"Señoras y señores, esto es un empate.\")\n",
+    "\n",
+    "    \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Expected output**:\n",
+    "```\n",
+    "Gandalf wins\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Goals\n",
+    "\n",
+    "1. Treatment of lists\n",
+    "2. Use of **for loop**\n",
+    "3. Use of conditional **if-elif-else**\n",
+    "4. Use of the functions **range(), len()**\n",
+    "5. print()\n",
+    "6. zip()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Bonus\n",
+    "\n",
+    "1. Spells now have a name and there is a dictionary that relates that name to a power.\n",
+    "2. A sorcerer wins if he succeeds in winning 3 spell clashes in a row.\n",
+    "3. Average of each of the spell lists.\n",
+    "4. Standard deviation of each of the spell lists.\n",
+    "\n",
+    "```\n",
+    "POWER = {\n",
+    "    'Fireball': 50, \n",
+    "    'Lightning bolt': 40, \n",
+    "    'Magic arrow': 10, \n",
+    "    'Black Tentacles': 25, \n",
+    "    'Contagion': 45\n",
+    "}\n",
+    "\n",
+    "gandalf = ['Fireball', 'Lightning bolt', 'Lightning bolt', 'Magic arrow', 'Fireball', \n",
+    "           'Magic arrow', 'Lightning bolt', 'Fireball', 'Fireball', 'Fireball']\n",
+    "saruman = ['Contagion', 'Contagion', 'Black Tentacles', 'Fireball', 'Black Tentacles', \n",
+    "           'Lightning bolt', 'Magic arrow', 'Contagion', 'Magic arrow', 'Magic arrow']\n",
+    "```\n",
+    "\n",
+    "Good luck!"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 1. Spells now have a name and there is a dictionary that relates that name to a power.\n",
+    "# variables\n",
+    "\n",
+    "POWER = {\n",
+    "    'Fireball': 50, \n",
+    "    'Lightning bolt': 40, \n",
+    "    'Magic arrow': 10, \n",
+    "    'Black Tentacles': 25, \n",
+    "    'Contagion': 45\n",
+    "}\n",
+    "\n",
+    "gandalf = ['Fireball', 'Lightning bolt', 'Lightning bolt', 'Magic arrow', 'Fireball', \n",
+    "           'Magic arrow', 'Lightning bolt', 'Fireball', 'Magic arrow', 'Fireball']\n",
+    "saruman = ['Contagion', 'Contagion', 'Black Tentacles', 'Fireball', 'Black Tentacles', \n",
+    "           'Lightning bolt', 'Magic arrow', 'Contagion', 'Magic arrow', 'Magic arrow']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Assign spell power lists to variables\n",
+    "\n",
+    "gandalf_spells = []\n",
+    "for spells in gandalf:\n",
+    "    if spells in POWER.keys():\n",
+    "        gandalf_spells.append(POWER[spells])\n",
+    "\n",
+    "saruman_spells = []\n",
+    "for spells in saruman:\n",
+    "    if spells in POWER.keys():\n",
+    "        saruman_spells.append(POWER[spells])\n",
+    "\n",
+    "\n",
+    "print(f\"Estos son los poderes de los hechizos de Gandalf: {gandalf_spells}\")\n",
+    "print(f\"Estos son los poderes de los hechizos de Saruman: {saruman_spells}\")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Expected output**:\n",
+    "```\n",
+    "([50, 40, 40, 10, 50, 10, 40, 50, 10, 50],\n",
+    " [45, 45, 25, 50, 25, 40, 10, 45, 10, 10])\n",
+    " ```"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 2. A sorcerer wins if he succeeds in winning 3 spell clashes in a row.\n",
+    "\n",
+    "# Execution of spell clashes\n",
+    "\n",
+    "\n",
+    "#Sé que mi código no está estrictamente bien. Lo que ocurre es que Gandalf gana dos veces,\n",
+    "#Luego empata, y luego vuelve a ganar. Yo lo interpreto como que no ganó 3 veces consecutivas, sino solo dos.\n",
+    "#Ganó dos veces , y luego no perdió, y luego ganó. Pero no perder no es lo mismo que ganar. \n",
+    "#Por eso mi código tiene el \"mayor o igual\". \n",
+    "#Si no hubiera empatado, y en el noveno \"clash\" Gandalf tuviera más de 10 puntos,\n",
+    "#se pueden quitar los signos de igualdad y el código funciona. \n",
+    "\n",
+    "counter_gandalf = 0\n",
+    "counter_saruman = 0\n",
+    "\n",
+    "for x in range(len(gandalf_spells)):\n",
+    "    if gandalf_spells[x] >= saruman_spells[x]:\n",
+    "        if gandalf_spells[x-1] >= saruman_spells[x-1]:\n",
+    "            counter_gandalf = counter_gandalf +1\n",
+    "    if counter_gandalf >= 3 and counter_saruman < 3:\n",
+    "        print(\"Gandalf ganó\")\n",
+    "        break\n",
+    "\n",
+    "for x in range(len(saruman_spells)):\n",
+    "    if saruman_spells[x] >= gandalf_spells[x]:\n",
+    "        if saruman_spells[x-1] >= gandalf_spells[x-1]:\n",
+    "            counter_saruman = counter_saruman +1\n",
+    "    if counter_saruman >= 3 and counter_gandalf < 3:\n",
+    "        print(\"Saruman ganó\")\n",
+    "        break        "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Expected output**:\n",
+    "```\n",
+    "Gandalf wins\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 3. Average of each of the spell lists.\n",
+    "\n",
+    "\n",
+    "promedio_gandalf = sum(gandalf_spells)/len(gandalf_spells)\n",
+    "print(f\"Este es el promedio de los hechizos de Gandalf: {promedio_gandalf}\")\n",
+    "\n",
+    "promedio_saruman = sum(saruman_spells)/len(saruman_spells)\n",
+    "print(f\"Este es el promedio de los hechizos de Saruman: {promedio_saruman}\")\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Expected output**:\n",
+    "```\n",
+    "35.0\n",
+    "30.5\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 4. Standard deviation of each of the spell lists.\n",
+    "\n",
+    "\n",
+    "suma_cuadrados_g = 0\n",
+    "import math\n",
+    "\n",
+    "#Calculemos la desviación para Gandalf. \n",
+    "for spell in gandalf_spells: \n",
+    "    suma_cuadrados_g = suma_cuadrados_g + (spell - promedio_gandalf)**2\n",
+    "\n",
+    "var_gandalf = suma_cuadrados_g/ (len(gandalf_spells))  #Nota que es la varianza sesgada; debería ser len() -1\n",
+    "std_dev_gandalf = math.sqrt(var_gandalf)\n",
+    "print(f\"La desviación estándar de los hechizos de Gandalf es {std_dev_gandalf}\")\n",
+    "\n",
+    "suma_cuadrados_s = 0\n",
+    "for spell in saruman_spells: \n",
+    "    suma_cuadrados_s = suma_cuadrados_s + (spell - promedio_saruman)**2\n",
+    "\n",
+    "var_saruman = suma_cuadrados_s/ (len(saruman_spells))\n",
+    "std_dev_saruman = math.sqrt(var_saruman)\n",
+    "print(f\"La desviación estándar de los hechizos de Saruman es {std_dev_saruman}\")\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Expected output**:\n",
+    "```\n",
+    "16.881943016134134\n",
+    "15.56438241627338\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
